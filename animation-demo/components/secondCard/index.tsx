@@ -3,6 +3,8 @@ import React from "react";
 
 interface SecondCardProps {
   secondCardRef: React.RefObject<HTMLDivElement>;
+  secondCardCoverImageRef: React.RefObject<HTMLDivElement>;
+  secondCardDetailsRef: React.RefObject<HTMLDivElement>;
 }
 
 const streamingServices = [
@@ -12,37 +14,35 @@ const streamingServices = [
   { src: "/images/youTube.svg", name: "Youtube" },
 ];
 
-const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef }) => {
+const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef, secondCardCoverImageRef , secondCardDetailsRef }) => {
   return (
-    <div
-      ref={secondCardRef}
-      className="
-       
-       rounded-3xl bg-white 
-        overflow-hidden opacity-0 z-10
-
-      "
-      style={{
-        transform: "scaleY(0)",
-        transformOrigin: "center center",
-        transition: "all 0.8s ease",
-      }}
-    >
+<div className="relative -mr-12">
       <div
-        className="card-content pb-4 opacity-0 "
-        style={{ transition: "all 0.8s ease" }}
+      ref={secondCardRef}
+      className=" rounded-lg bg-[#f7f7f7] 
+        overflow-hidden shadow absolute left-0 top-0 w-full h-full opacity-0
+      "
+       style={{
+                    transform: 'scaleY(0)',
+                    transformOrigin: 'center center',
+                    transition: 'all 0.8s ease'
+                }}
+    />
+      <div
+        className="card-content pb-4"
       >
         {/* Cover Image */}
-        <div className="overflow-hidden h-[183.68px] max-w-[196px] w-full rounded-t-lg">
+        <div className="overflow-hidden h-[183.68px] max-w-[196px] w-full rounded-t-lg relative"> 
+        <div className="relative rounded-t-lg overflow-hidden  w-full h-full" ref={secondCardCoverImageRef} style={{transform: "translateY(100%)", transformOrigin: "bottom" }}>
           <Image
             src="/images/emmy-meli.png"
             alt="artist"
-            className="w-full h-full"
+            className="w-full h-full rounded-t-lg"
             width={207}
             height={192.77}
           />
           <span className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent"></span>
-          <div className="mt-3 absolute bottom-[15%] left-4">
+          <div className="mt-3 absolute bottom-[20%] left-4">
             <div className="text-[9px] text-white ">Emmy Meli</div>
             <div className="text-[12px]  font-normal font-Outfit text-white">
               I am woman
@@ -50,31 +50,32 @@ const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef }) => {
           </div>
         </div>
 
+        </div>
+
         {/* Card Details */}
-        <div className=" -translate-y-[14%] ">
+        <div className=" -mt-[14%] " ref={secondCardDetailsRef}>
           {/* Interactive Options */}
-          <div className="mt-3 space-y-1.5 sm:space-y-3 translate-x-4 shadow">
+          <div className="mt-3 space-y-1.5 sm:space-y-3 translate-x-4">
             {/* Email Input */}
-            <div className="rtl-in flex items-center gap-2 bg-white h-10 px-3 shadow-[0_.1em_.6em_rgb(0_0_0_/_20%)]">
+            <div className="rtl-in flex items-center gap-2 bg-white h-[30px] px-3 rounded-[2px] shadow-[0_1px_5px_0_rgba(0,0,0,0.2)]">
               <input
                 type="text"
                 placeholder="Enter your email"
-                className="bg-transparent outline-none text-[10px] text-black placeholder:text-[10px] placeholder:text-gray-400 w-full"
+                className="bg-transparent outline-none text-[9px] text-black  placeholder:text-[#878787] w-full"
               />
             </div>
 
-            {/* Streaming Services */}
             {streamingServices.map((service, i) => (
               <div
                 key={i}
-                className="rtl-in flex items-center gap-2 bg-white h-10 px-3 shadow-[0_.1em_.6em_rgb(0_0_0_/_20%)]"
+                className="rtl-in flex items-center gap-2 bg-white h-[30px] px-3 rounded-[2px] shadow-[0_1px_5px_0_rgba(0,0,0,0.2)]"
               >
                 <Image
                   src={service.src}
                   alt={service.name}
-                  width={18}
-                  height={18}
-                  className="w-[12px] sm:w-[18px] h-[12px] sm:h-[18px]"
+                  width={16}
+                  height={16}
+                  className="w-[16px] h-[16px]"
                 />
                 <div className="text-[10px] text-black">{service.name}</div>
               </div>

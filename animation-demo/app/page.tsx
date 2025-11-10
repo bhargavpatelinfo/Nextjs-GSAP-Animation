@@ -18,6 +18,10 @@ export default function Home() {
   const buttonRef = useRef<HTMLButtonElement>(null!)
   const appleMusicRef = useRef<HTMLDivElement>(null!)
   const imageRef = useRef<HTMLDivElement>(null!)
+  const coverImageRef = useRef<HTMLDivElement>(null!)
+  const secondCardCoverImageRef = useRef<HTMLDivElement>(null!)
+  const secondCardDetailsRef = useRef<HTMLDivElement>(null!)
+
 
   useEffect(() => {
     const animateViolet = () => {
@@ -54,17 +58,27 @@ export default function Home() {
       appleMusicRef.current.style.transform = 'scaleY(1)'
       appleMusicRef.current.style.transition = 'transform 0.8s ease, opacity 0.8s ease'
     }
-        const imageAnimation = () => {
+    const imageAnimation = () => {
       if (!imageRef.current) return
       imageRef.current.style.transform = 'scaleY(0)'
       imageRef.current.style.transition = 'transform 0.8s ease, opacity 0.8s ease'
+    }
+    const coverImageAnimation = () => {
+      if (!coverImageRef.current) return
+      coverImageRef.current.style.transform = 'translateY(0)'
+      coverImageRef.current.style.transition = 'transform 0.4s  ease'
+    }
+    const secondCardCoverImageAnimation = () => {
+      if (!secondCardCoverImageRef.current) return
+      secondCardCoverImageRef.current.style.transform = 'translateY(0)'
+      secondCardCoverImageRef.current.style.transition = 'transform 0.9s  ease'
     }
 
     const showSecondCard = () => {
       if (!secondCardRef.current) return
       secondCardRef.current.style.opacity = '1'
-      secondCardRef.current.style.transform = 'scaleY(1)'
-      secondCardRef.current.style.transition = 'transform 0.8s ease, opacity 0.8s ease'
+      secondCardRef.current.style.transform = 'scaleY(1) rotate(0deg)'
+      secondCardRef.current.style.transition = 'transform 0.4s ease, opacity 0.4s ease'
     }
 
     const initSecondCardContent = () => {
@@ -151,7 +165,7 @@ export default function Home() {
 
         setTimeout(() => {
           revealMainCardContent()
-
+          coverImageAnimation()
           setTimeout(() => {
             if (emailBarRef.current) {
               const el = emailBarRef.current
@@ -190,9 +204,9 @@ export default function Home() {
             // After bars animate, show second card
             setTimeout(() => {
               animateLinesDecor()
+              secondCardCoverImageAnimation()
               animateLinesDecor()
               showSecondCard()
-
               // After second card appears
               setTimeout(() => {
                 revealSecondCardContent()
@@ -208,7 +222,7 @@ export default function Home() {
     <main className="relative overflow-hidden bg-white pb-[50px] ">
       <div className="absolute inset-x-0 top-0 h-2 bg-black" />
       <section className="mx-auto w-[694px] max-w-[90%] py-24 md:py-32">
-        <div ref={containerRef} className="relative h-[540px] flex">
+        <div ref={containerRef} className="relative h-[540px] flex items-start">
           <Image alt='vector' src="/images/vector.svg" width={188} height={265}
             className='relative left-[6%] top-[15%]  self-center'
             //  @ts-ignore
@@ -219,8 +233,8 @@ export default function Home() {
               opacity: 0,
               transition: 'transform 0.7s ease, opacity 0.4s ease'
             }} />
-          <SecondCard secondCardRef={secondCardRef} />
-          <MainCard mainCardRef={mainCardRef} inputRef={inputRef} buttonRef={buttonRef} emailBarRef={emailBarRef} spotifyBarRef={spotifyBarRef} violetRef={violetRef} appleMusicRef={appleMusicRef} imageRef={imageRef} />
+          <SecondCard secondCardRef={secondCardRef} secondCardCoverImageRef={secondCardCoverImageRef} secondCardDetailsRef={secondCardDetailsRef}/>
+          <MainCard mainCardRef={mainCardRef} inputRef={inputRef} buttonRef={buttonRef} emailBarRef={emailBarRef} spotifyBarRef={spotifyBarRef} violetRef={violetRef} appleMusicRef={appleMusicRef} imageRef={imageRef} coverImageRef={coverImageRef} />
 
         </div>
 
