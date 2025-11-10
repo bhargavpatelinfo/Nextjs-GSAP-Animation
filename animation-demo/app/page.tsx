@@ -3,6 +3,7 @@
 import LinesDecor from '@/components/common/icon/linesDecorIcon'
 import MainCard from '@/components/mainCard'
 import SecondCard from '@/components/secondCard'
+import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
 export default function Home() {
@@ -187,27 +188,27 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="relative overflow-hidden bg-black pb-[50px]">
+    <main className="relative overflow-hidden bg-white pb-[50px] ">
       <div className="absolute inset-x-0 top-0 h-2 bg-black" />
       <section className="mx-auto max-w-3xl px-4 lg:px-6 py-24 md:py-32">
-        <div ref={containerRef} className="relative h-[540px]">
+        <div ref={containerRef} className="relative  h-[540px]">
           <MainCard mainCardRef={mainCardRef} emailBarRef={emailBarRef} spotifyBarRef={spotifyBarRef} />
-          <div
-            className='absolute top-[25%] -left-20 sm:-left-40 w-[100px] sm:w-[135px] h-[80px] sm:h-[110px]'
+     
+           <Image alt='vector' src="/images/vector.svg" width={188} height={265}  
+           className='absolute left-[6%] top-[15%] '
+           //  @ts-ignore
             ref={linesDecorRef}
             style={{
               transform: 'scaleX(0)',
               transformOrigin: 'right center',
               opacity: 0,
               transition: 'transform 0.7s ease, opacity 0.4s ease'
-            }}
-          >
-            <LinesDecor />
-          </div>
+            }} />
+      
 
           <div
             ref={violetRef}
-            className="md:absolute  md:left-[40%] top-40 h-48 bg-violet-500 block opacity-0 -mt-[420px] ml-auto mr-[12px] em:mr-[24px] sm:mr-[55px] md:m-0"
+            className="md:absolute  md:left-[40%] top-30 w-[246px] h-[285px] bg-violet-500 block opacity-0  md:m-0"
             style={{
               width: '0px',
               overflow: 'hidden',
@@ -220,5 +221,6 @@ export default function Home() {
 
       </section>
     </main>
+
   )
 }

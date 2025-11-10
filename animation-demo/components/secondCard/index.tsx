@@ -1,57 +1,59 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from "next/image";
+import React from "react";
 
 interface SecondCardProps {
-  secondCardRef: React.RefObject<HTMLDivElement>
+  secondCardRef: React.RefObject<HTMLDivElement>;
 }
 
 const streamingServices = [
-  { src: '/images/spotify.svg', name: 'Spotify' },
-  { src: '/images/apple.svg', name: 'Apple Music' },
-  { src: '/images/spotify.svg', name: 'Spotify' },
-  { src: '/images/apple.svg', name: 'Apple Music' },
-  { src: '/images/spotify.svg', name: 'Spotify' },
-  { src: '/images/apple.svg', name: 'Apple Music' },
-]
+  { src: "/images/deezer.svg", name: "Deezer" },
+  { src: "/images/spotify.svg", name: "Spotify" },
+  { src: "/images/apple-music.svg", name: "Apple Music" },
+  { src: "/images/youTube.svg", name: "Youtube" },
+];
 
 const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef }) => {
   return (
     <div
       ref={secondCardRef}
       className="
-        md:absolute md:left-20 w-full max-w-[190px] sm:max-w-[240px] md:max-w-full 
-        md:w-[280px] h-[400px] sm:h-[440px] rounded-3xl bg-white shadow-2xl 
+        md:absolute w-full left-[28%]  md:max-w-full 
+        md:w-[196.3px] h-[425.89px] rounded-3xl bg-white 
         overflow-hidden opacity-0 z-10 -mt-[50%] ml-4 em:ml-24 sm:ml-36 md:m-0
+
       "
       style={{
-        transform: 'scaleY(0)',
-        transformOrigin: 'center center',
-        transition: 'all 0.8s ease',
+        transform: "scaleY(0)",
+        transformOrigin: "center center",
+        transition: "all 0.8s ease",
       }}
     >
       <div
-        className="card-content pb-4 opacity-0"
-        style={{ transition: 'all 0.8s ease' }}
+        className="card-content pb-4 opacity-0 "
+        style={{ transition: "all 0.8s ease" }}
       >
         {/* Cover Image */}
-        <div className="relative h-[140px] sm:h-48 w-full overflow-hidden rounded-t-xl">
-          <img
-            src="https://picsum.photos/id/1041/1200/800"
-            alt="cover"
-            className="h-full w-full object-cover"
-            loading="lazy"
+        <div className="relative overflow-hidden h-[183.68px] max-w-[196px] w-full rounded-t-lg">
+          <Image
+            src="/images/emmy-meli.png"
+            alt="artist"
+            className="w-full h-full"
+            width={207}
+            height={192.77}
           />
+          <span className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent"></span>
+          <div className="mt-3 absolute bottom-[15%] left-4">
+            <div className="text-[9px] text-white ">Emmy Meli</div>
+            <div className="text-[12px]  font-normal font-Outfit text-white">
+              I am woman
+            </div>
+          </div>
         </div>
 
         {/* Card Details */}
-        <div className="px-4 -mt-[90px] relative z-10">
-          <div className="mt-3">
-            <div className="text-[10px] sm:text-xs text-white">mxmtoon</div>
-            <div className="text-sm sm:text-lg font-semibold">Mona Lisa</div>
-          </div>
-
+        <div className=" -translate-y-[14%] ">
           {/* Interactive Options */}
-          <div className="mt-3 space-y-1.5 sm:space-y-3">
+          <div className="mt-3 space-y-1.5 sm:space-y-3 translate-x-4 shadow">
             {/* Email Input */}
             <div className="rtl-in flex items-center gap-2 bg-white h-10 px-3 shadow-[0_.1em_.6em_rgb(0_0_0_/_20%)]">
               <input
@@ -81,7 +83,7 @@ const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SecondCard
+export default SecondCard;

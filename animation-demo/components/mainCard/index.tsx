@@ -11,31 +11,26 @@ const MainCard = ({ mainCardRef, emailBarRef, spotifyBarRef }: MainCardProps) =>
     return (
         <div
             ref={mainCardRef}
-            className="relative md:absolute md:right-40 md:top-8 w-full max-w-[200px] sm:max-w-[240px] md:max-w-full  md:w-[280px] h-[480px] em:h-[570px] rounded-3xl bg-white shadow-[0_.1em_.6em_rgb(0_0_0_/_20%)] block opacity-0 z-20 ml-auto mr-8 esm:mr-12 em:mr-20 sm:mr-28 md:m-0"
+            className="card-content relative md:absolute md:right-40 md:top-8 w-full md:max-w-full  md:w-[207px] h-[480px] em:h-[570px] rounded-3xl bg-white  block opacity-0 z-20 ml-auto mr-8 esm:mr-12 em:mr-20 sm:mr-28 md:m-0 shadow-2xl "
             style={{
                 transform: 'scaleY(0)',
                 transformOrigin: 'center center',
                 transition: 'all 0.8s ease'
             }}
         >
-            <div
-                className="card-content h-full opacity-0"
-                style={{
-                    transform: 'translateY(40px)',
-                    transformOrigin: 'bottom',
-                    transition: 'all 0.8s ease'
-                }}
-            >
-                <div className="relative overflow-hidden">
-                    <img
-                        src="https://picsum.photos/id/1027/1200/800"
+        
+                <div className="relative overflow-hidden h-[192.77px] max-w-[207px] w-full rounded-t-xl">
+                    <Image
+                        src="/images/sofi-tukker-image.png"
                         alt="artist"
-                        className="h-[150px] em:h-[180px] w-full object-cover rounded-t-3xl"
-                        loading="lazy"
+                        className="w-full h-full"
+                        width={207}
+                        height={192.77}
                     />
+                    <span className='absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent'></span>
                     <div className="mt-3 absolute bottom-4 left-4">
-                        <div className="text-xs text-white uppercase">Sofi Tukker</div>
-                        <div className="text-sm md:text-lg font-semibold text-white">welcome to our bio link</div>
+                        <div className="text-[13px] text-white uppercase">Sofi Tukker</div>
+                        <div className="text-[10px]  font-normal font-Outfit text-white">welcome to our bio link</div>
                     </div>
                 </div>
                 <div className="px-4">
@@ -100,7 +95,7 @@ const MainCard = ({ mainCardRef, emailBarRef, spotifyBarRef }: MainCardProps) =>
                         </div>
                     </div>
                 </div>
-            </div>
+         
         </div>
     )
 }
