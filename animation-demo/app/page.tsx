@@ -10,17 +10,21 @@ export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null!)
   const mainCardRef = useRef<HTMLDivElement>(null!)
   const secondCardRef = useRef<HTMLDivElement>(null!)
+  const inputRef = useRef<HTMLInputElement>(null!)
   const violetRef = useRef<HTMLDivElement>(null!)
   const emailBarRef = useRef<HTMLDivElement>(null!)
   const spotifyBarRef = useRef<HTMLDivElement>(null!)
   const linesDecorRef = useRef<HTMLDivElement>(null!)
+  const buttonRef = useRef<HTMLButtonElement>(null!)
+  const appleMusicRef = useRef<HTMLDivElement>(null!)
+  const imageRef = useRef<HTMLDivElement>(null!)
 
   useEffect(() => {
     const animateViolet = () => {
       if (!violetRef.current) return
       violetRef.current.style.opacity = '1'
       violetRef.current.style.transition = 'all 0.8s ease'
-      violetRef.current.style.width = '360px'
+      violetRef.current.style.width = '100%'
     }
 
     const showMainCard = () => {
@@ -38,6 +42,22 @@ export default function Home() {
         content.style.transform = 'translateY(0)'
         content.style.transition = 'all 0.8s ease'
       }
+    }
+    const animateButton = () => {
+      if (!buttonRef.current) return
+      buttonRef.current.style.opacity = '1'
+      buttonRef.current.style.transition = 'all 0.8s ease'
+    }
+    const animateAppleMusic = () => {
+      if (!appleMusicRef.current) return
+      appleMusicRef.current.style.opacity = '1'
+      appleMusicRef.current.style.transform = 'scaleY(1)'
+      appleMusicRef.current.style.transition = 'transform 0.8s ease, opacity 0.8s ease'
+    }
+        const imageAnimation = () => {
+      if (!imageRef.current) return
+      imageRef.current.style.transform = 'scaleY(0)'
+      imageRef.current.style.transition = 'transform 0.8s ease, opacity 0.8s ease'
     }
 
     const showSecondCard = () => {
@@ -97,6 +117,14 @@ export default function Home() {
       emailBarRef.current.style.transition = 'transform 0.7s ease, opacity 0.5s ease'
     }
 
+    const animateInput = () => {
+      if (!inputRef.current) return
+      inputRef.current.style.opacity = '1'
+      inputRef.current.style.transform = 'translateX(0)'
+      inputRef.current.style.transition = 'transform 0.5s ease, opacity 0.5s ease'
+    }
+
+
     const animateSpotifyBar = () => {
       if (!spotifyBarRef.current) return
       spotifyBarRef.current.style.opacity = '1'
@@ -136,26 +164,15 @@ export default function Home() {
                 // expand directly to 1.5
                 el.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)'
                 el.style.transform = 'scaleX(1.5)'
-                // const toFullListener = () => {
-                //   // hold at 1.5 for 2 seconds, then settle to 1
-                //   setTimeout(() => {
-                //     el.style.transition = 'transform 0.32s ease'
-                //     el.style.transform = 'scaleX(1)'
-                //     const settleListener = () => {
-                //       // after settle completes, animate Spotify
-                //       setTimeout(() => {
-                //         animateSpotifyBar()
-                //       }, 200)
-                //     }
-                //     el.addEventListener('transitionend', settleListener, { once: true })
-                //   }, 2000)
-                // }
                 const toFullListener = () => {
                   // after reaching 1.5, show Spotify immediately
                   setTimeout(() => {
                     animateSpotifyBar()
                   }, 50)
-
+                  animateInput()
+                  animateButton()
+                  animateAppleMusic()
+                  imageAnimation()
                   // hold at 1.5 for 2 seconds, then settle to 1
                   setTimeout(() => {
                     el.style.transition = 'transform 0.32s ease'
@@ -190,13 +207,11 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden bg-white pb-[50px] ">
       <div className="absolute inset-x-0 top-0 h-2 bg-black" />
-      <section className="mx-auto max-w-3xl px-4 lg:px-6 py-24 md:py-32">
-        <div ref={containerRef} className="relative  h-[540px]">
-          <MainCard mainCardRef={mainCardRef} emailBarRef={emailBarRef} spotifyBarRef={spotifyBarRef} />
-     
-           <Image alt='vector' src="/images/vector.svg" width={188} height={265}  
-           className='absolute left-[6%] top-[15%] '
-           //  @ts-ignore
+      <section className="mx-auto w-[694px] max-w-[90%] py-24 md:py-32">
+        <div ref={containerRef} className="relative h-[540px] flex">
+          <Image alt='vector' src="/images/vector.svg" width={188} height={265}
+            className='relative left-[6%] top-[15%]  self-center'
+            //  @ts-ignore
             ref={linesDecorRef}
             style={{
               transform: 'scaleX(0)',
@@ -204,18 +219,8 @@ export default function Home() {
               opacity: 0,
               transition: 'transform 0.7s ease, opacity 0.4s ease'
             }} />
-      
-
-          <div
-            ref={violetRef}
-            className="md:absolute  md:left-[40%] top-30 w-[246px] h-[285px] bg-violet-500 block opacity-0  md:m-0"
-            style={{
-              width: '0px',
-              overflow: 'hidden',
-              transformOrigin: 'left center'
-            }}
-          />
           <SecondCard secondCardRef={secondCardRef} />
+          <MainCard mainCardRef={mainCardRef} inputRef={inputRef} buttonRef={buttonRef} emailBarRef={emailBarRef} spotifyBarRef={spotifyBarRef} violetRef={violetRef} appleMusicRef={appleMusicRef} imageRef={imageRef} />
 
         </div>
 

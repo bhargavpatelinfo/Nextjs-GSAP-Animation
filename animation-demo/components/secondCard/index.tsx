@@ -17,9 +17,9 @@ const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef }) => {
     <div
       ref={secondCardRef}
       className="
-        md:absolute w-full left-[28%]  md:max-w-full 
-        md:w-[196.3px] h-[425.89px] rounded-3xl bg-white 
-        overflow-hidden opacity-0 z-10 -mt-[50%] ml-4 em:ml-24 sm:ml-36 md:m-0
+       
+       rounded-3xl bg-white 
+        overflow-hidden opacity-0 z-10
 
       "
       style={{
@@ -33,7 +33,7 @@ const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef }) => {
         style={{ transition: "all 0.8s ease" }}
       >
         {/* Cover Image */}
-        <div className="relative overflow-hidden h-[183.68px] max-w-[196px] w-full rounded-t-lg">
+        <div className="overflow-hidden h-[183.68px] max-w-[196px] w-full rounded-t-lg">
           <Image
             src="/images/emmy-meli.png"
             alt="artist"
