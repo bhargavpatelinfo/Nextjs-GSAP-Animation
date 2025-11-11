@@ -8,11 +8,14 @@
   --mainBlack:#000000;
   --lightWhite: #f7f7f7;
   --mainVaiolet:#8D4CFF;
+  --brand-gray:#878787;
   --Outfit: "Outfit", sans-serif;
   --primary-shadow: 10px 15px 40px 0 rgba(0, 0, 0, 0.2);
   --secondary-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+  --second-card-shadow: 8px 14px 31px 0 rgba(0,0,0,0.2);
   --image-shadow-background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.04) 25%, rgba(0,0,0,0.5) 100%);
-
+  --orange-background: linear-gradient(219deg,rgba(255,82,98,1) 0%,rgba(255,82,98,0) 100%);
+  --input-shadow: 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
 @theme inline {
@@ -21,16 +24,21 @@
   --color-mainBlack:var(--mainBlack);
   --color-lightWhite:var(--lightWhite);
   --color-mainVaiolet:var(--mainVaiolet);
+  --color-brand-gray:var(--brand-gray);
   --font-Outfit: var(--font-Outfit);
   --shadow-primaryShadow: var(--primary-shadow);
   --shadow-secondaryShadow: var(--secondary-shadow);
+  --shadow-second-card-shadow: var(--second-card-shadow);
   --color-image-shadow: var(--image-shadow-background);
+  --color-orange-background: var(--orange-background);
+  --shadow-input-shadow: var(--input-shadow);
 }
 
 @theme {
-  --breakpoint-lsm: 350px;
+  --breakpoint-lsm: 380px;
   --breakpoint-esm: 400px;
   --breakpoint-em: 480px;
+  --breakpoint-msm: 550px;
 }
 
 body {

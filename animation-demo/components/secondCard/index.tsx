@@ -16,54 +16,54 @@ const streamingServices = [
 
 const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef, secondCardCoverImageRef, secondCardDetailsRef }) => {
   return (
-    <div className="relative -ml-[70px]">
+    <div className="relative -ml-[60px] md:-ml-[70px] sm:block hidden">
       <div
         ref={secondCardRef}
         className="rounded-[11px] bg-lightWhite 
-        overflow-hidden shadow-[8px_14px_31px_0_rgba(0,0,0,0.2)] absolute left-0 top-0 w-full h-full opacity-0
+        overflow-hidden shadow-second-card-shadow absolute left-0 top-0 w-full h-full opacity-0
       "
-      style={{
-                    transform: 'scaleY(0)',
-                    transformOrigin: 'center center',
+        style={{
+          transform: 'scaleY(0)',
+          transformOrigin: 'center center',
 
-                }}
+        }}
       />
       <div
         className="card-content pb-[10.85px]"
       >
         <div className="overflow-hidden h-[183.68px] max-w-[196px] w-full rounded-t-[11px] relative">
-          <div className="relative rounded-t-[11px] overflow-hidden  w-full h-full" ref={secondCardCoverImageRef} style={{ transform: "translateY(100%)", transformOrigin: "bottom" }}>
+          <div className="relative rounded-t-[11px] overflow-hidden  w-full h-full origin-bottom translate-y-full" ref={secondCardCoverImageRef} >
             <Image
-              src="/images/emmy-meli.png" 
+              src="/images/emmy-meli.png"
               alt="artist"
               className="w-full h-full rounded-t-[11px]"
               width={207}
               height={192.77}
             />
             <span className="absolute inset-0 bg-linear-to-t from-mainBlack via-mainBlack/50 to-transparent"></span>
-            <div className="mt-3 absolute bottom-[28px] left-4">
+            <div className="mt-3 absolute bottom-7 left-4">
               <div className="text-[9px] text-background ">Emmy Meli</div>
-              <div className="text-[12px]  font-normal font-Outfit text-background">
+              <div className="text-xs  font-normal font-Outfit text-background">
                 I am woman
               </div>
             </div>
           </div>
 
         </div>
-        <div className=" -mt-[30px]" ref={secondCardDetailsRef} style={{ transform: "translateX(100%)", transformOrigin: "right" }}>
+        <div className=" -mt-[30px] opacity-0 translate-x-full origin-right"  ref={secondCardDetailsRef} >
           <div className="mt-3 space-y-1.5 sm:space-y-[9.61px] pl-[15px]">
-            <div className="rtl-in flex items-center gap-2 bg-background h-[30px] px-3 rounded-[2px] shadow-[0_1px_5px_0_rgba(0,0,0,0.2)]">
+            <div className="rtl-in flex items-center gap-2 bg-background h-[30px] px-3 rounded-[2px] shadow-input-shadow">
               <input
                 type="text"
                 placeholder="Enter your email"
-                className="bg-transparent outline-none text-[9px] text-mainBlack  placeholder:text-[#878787] w-full"
+                className="bg-transparent outline-none text-[9px] text-mainBlack  placeholder:text-brand-gray w-full"
               />
             </div>
 
             {streamingServices.map((service, i) => (
               <div
                 key={i}
-                className="rtl-in flex items-center gap-2 bg-lightWhite h-[30px] px-3 rounded-[2px] shadow-[0_1px_5px_0_rgba(0,0,0,0.2)]"
+                className="rtl-in flex items-center gap-2 bg-lightWhite h-[30px] px-3 rounded-[2px] shadow-input-shadow"
               >
                 <Image
                   src={service.src}
