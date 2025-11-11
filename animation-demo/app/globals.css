@@ -7,10 +7,12 @@
   --foreground: #171717;
   --mainBlack:#000000;
   --lightWhite: #f7f7f7;
-  --mainVaiolet:#9B62FF;
+  --mainVaiolet:#8D4CFF;
   --Outfit: "Outfit", sans-serif;
   --primary-shadow: 10px 15px 40px 0 rgba(0, 0, 0, 0.2);
   --secondary-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+  --image-shadow-background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.04) 25%, rgba(0,0,0,0.5) 100%);
+
 }
 
 @theme inline {
@@ -20,8 +22,9 @@
   --color-lightWhite:var(--lightWhite);
   --color-mainVaiolet:var(--mainVaiolet);
   --font-Outfit: var(--font-Outfit);
-   --shadow-primaryShadow: var(--primary-shadow);
-   --shadow-secondaryShadow: var(--secondary-shadow);
+  --shadow-primaryShadow: var(--primary-shadow);
+  --shadow-secondaryShadow: var(--secondary-shadow);
+  --color-image-shadow: var(--image-shadow-background);
 }
 
 @theme {
