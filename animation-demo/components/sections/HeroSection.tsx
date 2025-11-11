@@ -183,7 +183,6 @@ export const HomeHeroSection = () => {
 
     return (
         <section className="relative overflow-hidden bg-background pb-[50px]">
-            <div className="absolute inset-x-0 top-0 h-2 bg-mainBlack" />
             <div className="mx-auto sm:w-[705px] sm:ax-w-[90%] py-12 em:py-24 md:py-32">
                 <div ref={containerRef} className="relative h-[540px] flex items-start z-10">
                     <Image
