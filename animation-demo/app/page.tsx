@@ -14,6 +14,6 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <HomeHeroSection/>
+    <HomeHeroSection />
   )
 }

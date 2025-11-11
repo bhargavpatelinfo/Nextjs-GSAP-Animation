@@ -50,7 +50,7 @@ const SecondCard: React.FC<SecondCardProps> = ({ secondCardRef, secondCardCoverI
           </div>
 
         </div>
-        <div className=" -mt-[30px] opacity-0 translate-x-full origin-right"  ref={secondCardDetailsRef} >
+        <div className=" -mt-[30px] opacity-0 translate-x-full origin-right" ref={secondCardDetailsRef} >
           <div className="mt-3 space-y-1.5 sm:space-y-[9.61px] pl-[15px]">
             <div className="rtl-in flex items-center gap-2 bg-background h-[30px] px-3 rounded-[2px] shadow-input-shadow">
               <input

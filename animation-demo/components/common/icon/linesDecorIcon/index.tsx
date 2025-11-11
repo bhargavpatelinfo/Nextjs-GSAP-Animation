@@ -3,7 +3,6 @@ import React from 'react'
 const LinesDecor = () => {
     return (
         <svg
-            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 135 110"
             className=" w-[250px] h-[180px] sm:w-[250px] sm:h-[180px]"
         >
